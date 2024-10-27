@@ -5,7 +5,7 @@ services:
       restart: always
       ports:
          - "1053:53/tcp"
-         - "1053:53/udp"                             #Usaremos el puerto 54 dado que el 53en máquina virtual está ocupado
+         - "1053:53/udp"                             #Usaremos el puerto 1053 dado que el 53 en máquina virtual está ocupado
          - "127.0.0.1:953:953/tcp"
       volumes:
          - /etc/bind:/etc/bind
