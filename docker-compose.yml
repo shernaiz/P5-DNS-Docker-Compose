@@ -1,0 +1,22 @@
+services:
+   bind9:
+      image: internetsystemsconsortium/bind9:9.20        #Imagen Bind9
+      container_name: proba_bind9
+      restart: always
+      ports:
+         - "1053:53/tcp"
+         - "1053:53/udp"                             #Usaremos el puerto 54 dado que el 53en máquina virtual está ocupado
+         - "127.0.0.1:953:953/tcp"
+      volumes:
+         - /etc/bind:/etc/bind
+         - /var/cache/bind:/var/cache/bind
+         - /var/lib/bind:/var/lib/bind
+         - /var/log:/var/log
+      networks:
+         - red_bind9
+     # command: ["named", "-g", "-c", "/etc/bind/named.conf"]
+
+networks:
+   red_bind9:
+      driver: bridge
+      name: red_bind9
