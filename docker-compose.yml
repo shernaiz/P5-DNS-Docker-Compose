@@ -4,14 +4,14 @@ services:
       container_name: proba_bind9
       restart: always
       ports:
-         - "1053:53/tcp"
-         - "1053:53/udp"                             #Usaremos el puerto 1053 dado que el 53 en máquina virtual está ocupado
+         - "54:54/tcp"
+         - "54:54/udp"                             #Usaremos el puerto 54 dado que el 53 en máquina virtual e>
          - "127.0.0.1:953:953/tcp"
-      volumes:
-         - /etc/bind:/etc/bind
-         - /var/cache/bind:/var/cache/bind
-         - /var/lib/bind:/var/lib/bind
-         - /var/log:/var/log
+      #volumes:
+        # - /etc/bind:/etc/bind
+        # - /var/cache/bind:/var/cache/bind
+        # - /var/lib/bind:/var/lib/bind
+        # - /var/log:/var/log
       networks:
          - red_bind9
      # command: ["named", "-g", "-c", "/etc/bind/named.conf"]
